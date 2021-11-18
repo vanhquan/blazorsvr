@@ -43,18 +43,18 @@
 </form>
 
 @code { [Parameter]
-            public string Id { get; set; }
-            Employee obj = new Employee();
-            protected override async Task OnInitializedAsync()
-            {
-                obj = await Task.Run(() => employeeService.GetEmployeeAsync(Convert.ToInt32(Id)));
-            }
-            protected async void DeleteEmployee()
-            {
-                await employeeService.DeleteEmployeeAsync(obj);
-                NavigationManager.NavigateTo("Employees");
-            }
-            void Cancel()
-            {
-                NavigationManager.NavigateTo("Employees");
-            } }
+    public string Id { get; set; }
+    Employee obj = new Employee();
+    protected override async Task OnInitializedAsync()
+    {
+        obj = await Task.Run(() => employeeService.GetEmployeeAsync(Convert.ToInt32(Id)));
+    }
+    protected async void DeleteEmployee()
+    {
+        await employeeService.DeleteEmployeeAsync(obj);
+        NavigationManager.NavigateTo("Employees");
+    }
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("Employees");
+    } }
