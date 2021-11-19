@@ -10,7 +10,7 @@ using blazorsvr.Data;
 namespace blazorsvr.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20211119124341_myfirstmigration")]
+    [Migration("20211119130526_myfirstmigration")]
     partial class myfirstmigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

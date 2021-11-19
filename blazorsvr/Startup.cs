@@ -36,7 +36,7 @@ namespace blazorsvr
             services.AddScoped<EmployeeService>();
 
             #region Connection String
-            services.AddDbContext<AppDBContext>(item => item.UseSqlServer(Configuration.GetConnectionString("lans")));
+            services.AddDbContext<AppDBContext>(item => item.UseSqlServer(Configuration.GetConnectionString("myconn")));
             #endregion
         }
 
