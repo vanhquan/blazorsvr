@@ -7,7 +7,7 @@
 
 </NavLink>
 
-<h1>IT Employees List</h1>
+<h1>Student List</h1>
 @if (EmpObj is null)
 {
 <p><em>Loading... !</em></p> }
@@ -17,31 +17,36 @@ else
     <thead>
         <tr>
             <th>Id</th>
-            <th>Employee Name</th>
+            <th>Student Name</th>
             <th>Gender</th>
-            <th>Designation</th>
-            <th>City</th>
-            <th>Action</th>
+            <th>DOB</th>
+            <th>Batch Time</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Website</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var emp in EmpObj)
         {
-<tr>
-    <td>@emp.Id</td>
-    <td>@emp.EmployeName</td>
-    <td>@emp.Gender</td>
-    <td>@emp.Designation</td>
-    <td>@emp.City</td>
-    <td>
-        <a class="nav-link" href="EditEmployee/@emp.Id">
-            <span class="oi oi-pencil" aria-hidden="true">Edit</span>
-        </a>
-        <a class="nav-link" href="Delete/@emp.Id">
-            <span class="oi oi-trash" aria-hidden="true">Delete</span>
-        </a>
-    </td>
-</tr>
+        <tr>
+            <td>@emp.Id</td>
+            <td>@emp.StudentName</td>
+            <td>@emp.Gender</td>
+            <td>@emp.DOB</td>
+            <td>@emp.BatchTime</td>
+            <td>@emp.Phone</td>
+            <td>@emp.Email</td>
+            <td>@emp.URL</td>
+            <td>
+                <a class="nav-link" href="EditEmployee/@emp.Id">
+                    <span class="oi oi-pencil" aria-hidden="true">Edit</span>
+                </a>
+                <a class="nav-link" href="Delete/@emp.Id">
+                    <span class="oi oi-trash" aria-hidden="true">Delete</span>
+                </a>
+            </td>
+        </tr>
            }
     </tbody>
 </table>}

@@ -10,9 +10,13 @@ namespace blazorsvr.Data
     {
         [Key]
         public int Id { get; set; }
-        public string EmployeName { get; set; }
+        public string StudentName { get; set; }
         public string Gender { get; set; }
-        public string City { get; set; }
-        public string Designation { get; set; }
+        public DateTime DOB { get; set; }
+        public string BatchTime { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
+        public string URL { get; set; }
+        public string Password { get; set; }
     }
 }

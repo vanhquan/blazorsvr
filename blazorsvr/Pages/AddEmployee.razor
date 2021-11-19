@@ -3,7 +3,7 @@
 @inject EmployeeService employeeService
 @inject NavigationManager NavigationManager
 
-<h2>Add Employee</h2>
+<h2>Add Student</h2>
 <hr />
 
 <form>
@@ -11,7 +11,7 @@
         <div class="col-md-8">
             <div class="form-group">
                 <label for="Name" class="control-label">Name</label>
-                <input form="Name" class="form-control" @bind="@obj.EmployeName" />
+                <input form="Name" class="form-control" @bind="@obj.StudentName" />
             </div>
             <div class="form-group">
                 <label for="Gender" class="control-label"></label>
@@ -22,14 +22,29 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="Designation" class="control-label">Designation</label>
-                <input form="Designation" class="form-control" @bind="@obj.Designation" />
+                <label for="Designation" class="control-label">Date of Birth</label>
+                <input form="Designation" class="form-control" @bind="@obj.DOB" type="datetime" />
             </div>
             <div class="form-group">
-                <label for="City" class="control-label">City</label>
-                <input form="City" class="form-control" @bind="@obj.City" />
+                <label for="Designation" class="control-label">Batch Time</label>
+                <input form="Designation" class="form-control" @bind="@obj.BatchTime" />
             </div>
-
+            <div class="form-group">
+                <label for="Designation" class="control-label">Phone</label>
+                <input form="Designation" class="form-control" @bind="@obj.Phone" />
+            </div>
+            <div class="form-group">
+                <label for="City" class="control-label">Email</label>
+                <input form="City" class="form-control" @bind="@obj.Email" />
+            </div>
+            <div class="form-group">
+                <label for="City" class="control-label">Website</label>
+                <input form="City" class="form-control" @bind="@obj.URL" />
+            </div>
+            <div class="form-group">
+                <label for="City" class="control-label">Password</label>
+                <input form="City" class="form-control" @bind="@obj.Password" />
+            </div>
         </div>
     </div>
 
