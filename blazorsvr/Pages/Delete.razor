@@ -1,6 +1,6 @@
 ﻿@page "/Delete/{Id}"
 @using blazorsvr.Data
-@inject EmployeeService employeeService
+@inject StudentService studentService
 @inject NavigationManager NavigationManager
 
 <h2>Delete Employee</h2>
@@ -37,17 +37,17 @@
 
 @code { [Parameter]
     public string Id { get; set; }
-    Employee obj = new Employee();
+    Data.Student obj = new Data.Student();
     protected override async Task OnInitializedAsync()
     {
-        obj = await Task.Run(() => employeeService.GetEmployeeAsync(Convert.ToInt32(Id)));
+        obj = await Task.Run(() => studentService.GetStudentAsync(Convert.ToInt32(Id)));
     }
     protected async void DeleteEmployee()
     {
-        await employeeService.DeleteEmployeeAsync(obj);
-        NavigationManager.NavigateTo("Employees");
+        await studentService.DeleteStudentAsync(obj);
+        NavigationManager.NavigateTo("Student");
     }
     void Cancel()
     {
-        NavigationManager.NavigateTo("Employees");
+        NavigationManager.NavigateTo("Student");
     } }

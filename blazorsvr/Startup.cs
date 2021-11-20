@@ -12,7 +12,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using static blazorsvr.Data.AppDBContext;
 
 namespace blazorsvr
 {
@@ -33,7 +32,7 @@ namespace blazorsvr
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
         
-            services.AddScoped<EmployeeService>();
+            services.AddScoped<StudentService>();
 
             #region Connection String
             services.AddDbContext<AppDBContext>(item => item.UseSqlServer(Configuration.GetConnectionString("myconn")));

@@ -1,0 +1,86 @@
+﻿@page "/Add"
+@using blazorsvr.Data
+@inject StudentService  studentService
+@inject NavigationManager NavigationManager
+
+<h2>Add Student</h2>
+<hr />
+
+<EditForm Model="@obj">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+                <label for="StudentName" class="control-label">Name</label>
+                @*<input form="StudentName" class="form-control" @bind="@obj.StudentName" />*@
+                <InputText @bind-Value="@obj.StudentName" class="form-control" />
+                <ValidationMessage For="@(()=>obj.StudentName)"></ValidationMessage>
+            </div>
+            <div class="form-group">
+                <label for="Gender" class="control-label">Gender</label>
+                <InputSelect @bind-Value="@obj.Gender" class="form-control">
+                    <option value="Select">--Select--</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </InputSelect>
+                <ValidationMessage For="@(() => obj.Gender)" />
+            </div>
+            <div class="form-group">
+                <label for="DOB" class="control-label">Date of Birth</label>
+                <InputDate @bind-Value="@obj.DOB" class="form-control" />
+                <ValidationMessage For="@(() => obj.DOB)" />
+            </div>
+            <div class="form-group">
+                <label for="BatchTime" class="control-label">Batch Time</label>
+                <InputText @bind-Value="@obj.BatchTime" class="form-control" />
+                <ValidationMessage For="@(()=>obj.BatchTime)"></ValidationMessage>
+            </div>
+            <div class="form-group">
+                <label for="Phone" class="control-label">Phone</label>
+                <InputText @bind-Value="@obj.Phone" class="form-control" />
+                <ValidationMessage For="@(()=>obj.Phone)"></ValidationMessage>
+            </div>
+            <div class="form-group">
+                <label for="Email" class="control-label">Email</label>
+                <InputText @bind-Value="@obj.Email" class="form-control" />
+                <ValidationMessage For="@(()=>obj.Email)"></ValidationMessage>
+            </div>
+            <div class="form-group">
+                <label for="URL" class="control-label">Website</label>
+                <InputText @bind-Value="@obj.URL" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="Password" class="control-label">Password</label>
+
+                <InputText @bind-Value="@obj.Password" class="form-control" type="password" />
+                <ValidationMessage For="@(()=>obj.Password)"></ValidationMessage>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <input type="button" class="btn btn-primary" @onclick="@CreateStudent" value="Save"/>
+                <input type="button" class="btn btn-primary" @onclick="@Cancel" value="Cancel" />
+            </div>
+        </div>
+    </div>
+</EditForm>
+
+@code { 
+    blazorsvr.Data.Student obj = new Data.Student();
+
+    protected async void CreateStudent()
+    {
+        await studentService.InsertStudentAsync(obj);
+        NavigationManager.NavigateTo("Student");
+
+    }
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("Student");
+    }
+    }
