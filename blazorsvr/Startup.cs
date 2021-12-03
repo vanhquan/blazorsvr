@@ -24,9 +24,6 @@ namespace blazorsvr
             //////
             ///
 
-
-
-
         }
 
         public IConfiguration Configuration { get; }
@@ -38,7 +35,7 @@ namespace blazorsvr
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
-        
+
             services.AddScoped<StudentService>();
 
             #region Connection String
